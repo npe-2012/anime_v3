@@ -23,6 +23,8 @@ class Index extends CI_Controller {
         $this->load->model('main_model');
         $this->load->helper('url');
         $this->load->library('grocery_CRUD');
+        $this->load->library('firephp');
+        //$this->firephp->log('orz');
 
     }
 	public function index()
