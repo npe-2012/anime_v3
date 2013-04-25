@@ -33,10 +33,10 @@ a:hover
 <body>
 <!-- Beginning header -->
     <div>
-        <a href='<?php echo site_url('examples/offices_management')?>'>動畫</a> | 
-        <a href='<?php echo site_url('examples/employees_management')?>'>角色</a> |
-        <a href='<?php echo site_url('examples/customers_management')?>'>聲優</a> |
-        <a href='<?php echo site_url('examples/orders_management')?>'>作品</a>
+        <a href='<?php echo site_url('index/anime')?>'>動畫</a> | 
+        <a href='<?php echo site_url('index/character')?>'>角色</a> |
+        <a href='<?php echo site_url('index/seiyuu')?>'>聲優</a> |
+        <a href='<?php echo site_url('index/title')?>'>作品</a>
  
     </div>
 <!-- End of header-->

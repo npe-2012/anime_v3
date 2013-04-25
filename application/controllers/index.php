@@ -29,7 +29,7 @@ class Index extends CI_Controller {
     }
 	public function index()
 	{
-		$this->load->view('anime');
+        redirect(site_url('index/anime'));
 	}
 
     public function anime() {
@@ -42,6 +42,41 @@ class Index extends CI_Controller {
         $crud->display_as('first_bc', '首播');
         $crud->display_as('current_progress', '進度');
         $crud->display_as('total_eps', '總話數');
+        $output = $crud->render();
+
+        $this->_grid_output($output);
+    }
+
+    public function character() {
+//        $this->grocery_crud->set_table('anime');
+        $crud = new grocery_CRUD();
+//        $crud->columns('title', 'title_jp', 'official_url', 'first_bc', 'current_progress', 'total_eps');
+        $crud->display_as('character', '角色');
+        $crud->display_as('title', '作品');
+        $crud->display_as('seiyuu', '聲優');
+        $crud->display_as('comment', '備註');
+        $crud->set_relation('title', 'title', 'title');
+        $crud->set_relation('seiyuu', 'seiyuu', 'seiyuu');
+        $output = $crud->render();
+
+        $this->_grid_output($output);
+    }
+
+    public function seiyuu() {
+//        $this->grocery_crud->set_table('anime');
+        $crud = new grocery_CRUD();
+//        $crud->columns('title', 'title_jp', 'official_url', 'first_bc', 'current_progress', 'total_eps');
+        $crud->display_as('seiyuu', '聲優');
+        $output = $crud->render();
+
+        $this->_grid_output($output);
+    }
+
+    public function title() {
+//        $this->grocery_crud->set_table('anime');
+        $crud = new grocery_CRUD();
+//        $crud->columns('title', 'title_jp', 'official_url', 'first_bc', 'current_progress', 'total_eps');
+        $crud->display_as('title', '聲優');
         $output = $crud->render();
 
         $this->_grid_output($output);
