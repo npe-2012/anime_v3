@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Anime extends CI_Controller {
+class Index extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,7 +20,7 @@ class Anime extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->load->model('anime_model');
+        $this->load->model('main_model');
         $this->load->helper('url');
         $this->load->library('grocery_CRUD');
 
@@ -30,15 +30,15 @@ class Anime extends CI_Controller {
 		$this->load->view('anime');
 	}
 
-    public function show() {
-        $this->grocery_crud->set_table('anime');
+    public function anime() {
+//        $this->grocery_crud->set_table('anime');
         $output = $this->grocery_crud->render();
 
         $this->_grid_output($output);
     }
 
     function _grid_output($output) {
-        $this->load->view('anime.php', $output);
+        $this->load->view('crud.php', $output);
     }
 
 }
