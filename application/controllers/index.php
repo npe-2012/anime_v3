@@ -32,7 +32,15 @@ class Index extends CI_Controller {
 
     public function anime() {
 //        $this->grocery_crud->set_table('anime');
-        $output = $this->grocery_crud->render();
+        $crud = new grocery_CRUD();
+        $crud->columns('title', 'title_jp', 'official_url', 'first_bc', 'current_progress', 'total_eps');
+        $crud->display_as('title', '作品');
+        $crud->display_as('title_jp', '日文');
+        $crud->display_as('official_url', '官網');
+        $crud->display_as('first_bc', '首播');
+        $crud->display_as('current_progress', '進度');
+        $crud->display_as('total_eps', '總話數');
+        $output = $crud->render();
 
         $this->_grid_output($output);
     }
